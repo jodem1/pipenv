@@ -415,7 +415,10 @@ def env_to_bool(val):
 
 
 def is_env_truthy(name):
-    """An environment variable is truthy if it exists and isn't one of (0, false, no, off)"""
+    """
+      An environment variable is truthy only if it matches one of the following
+      values:  "1", "true", "yes", "on"
+    """
     return env_to_bool(os.getenv(name, False))
 
 
